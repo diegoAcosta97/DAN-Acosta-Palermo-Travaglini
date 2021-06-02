@@ -5,6 +5,8 @@ public class Empleado {
     private Integer id;
     private String mail;
     private Usuario user;
+    private String nombre;
+
     public Integer getId() {
         return id;
     }
@@ -24,5 +26,11 @@ public class Empleado {
         this.user = user;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 }

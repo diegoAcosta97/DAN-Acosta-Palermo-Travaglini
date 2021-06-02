@@ -38,6 +38,26 @@ class ClienteRest {
         return ResponseEntity.of(c);
     }
 
+    @GetMapping(path = "/cuit/{cuit}")
+    public ResponseEntity<Cliente> clientePorCuit(@PathVariable String cuit){
+
+        Optional<Cliente> c =  listaClientes
+                .stream()
+                .filter(unCli -> unCli.getCuit().equals(cuit))
+                .findFirst();
+        return ResponseEntity.of(c);
+    }
+
+    @GetMapping(path = "/razonsocial/{razonSocial}")
+    public ResponseEntity<Cliente> clientePorRazonsocial(@PathVariable String razonSocial){
+
+        Optional<Cliente> c =  listaClientes
+                .stream()
+                .filter(unCli -> unCli.getRazonSocial().equals(razonSocial))
+                .findFirst();
+        return ResponseEntity.of(c);
+    }
+
     @GetMapping
     public ResponseEntity<List<Cliente>> todos(){
         return ResponseEntity.ok(listaClientes);
